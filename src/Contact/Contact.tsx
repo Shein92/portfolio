@@ -1,18 +1,25 @@
 import React from 'react';
-import style from './Contact.module.css';
+import style from './Contact.module.scss';
 import styleContainer from '../common/styles/Container.module.css';
+import Title from '../common/Components/Title/Title';
 
 const Contact = () => {
+
+    const onSubmit = (event: any) => {
+        alert('submit')
+        event.preventDefault();
+    }
+
     return (
-        <div className={style.contact}>
+        <div id="contactForm" className={style.contact}>
             <div className={`${styleContainer.container} ${style.container}`}>
-                <h2>CONTACT</h2>
-                <form action="" className={style.form}>
-                    <input type="text" placeholder='Your name' className={style.nameArea}/>
-                    <input type="number" placeholder="Your number" className={style.phoneArea}/>
-                    <textarea placeholder="Your message" className={style.textArea}></textarea>
+                <Title title={"contact"}/>
+                <form onSubmit={onSubmit} action="" className={style.form}>
+                    <input type="text" name="name" placeholder='Your name' className={style.nameArea}/>
+                    <input type="number" name="phone" placeholder="Your number" className={style.phoneArea}/>
+                    <textarea name="message" placeholder="Your message" className={style.textArea}></textarea>
+                    <button type={"submit"}>SEND</button>
                 </form>
-                <button>SEND</button>
             </div>
         </div>
     )
