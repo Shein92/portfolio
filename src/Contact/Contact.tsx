@@ -2,10 +2,12 @@ import React from 'react';
 import style from './Contact.module.scss';
 import styleContainer from '../common/styles/Container.module.css';
 import Title from '../common/Components/Title/Title';
+import axios from 'axios'
 
 const Contact = () => {
 
     const onSubmit = (event: any) => {
+        axios.post('https://localhost:3001/sendMessage', {body: "1"});
         alert('submit')
         event.preventDefault();
     }
